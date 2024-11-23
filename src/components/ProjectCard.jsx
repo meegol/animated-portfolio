@@ -8,16 +8,18 @@ const ProjectCard = ({ project }) => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-earth-200 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-earth-300"
+      className="bg-earth-200 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-earth-300 flex flex-col h-full"
     >
       <img
         src={project.image}
         alt={project.title}
         className="w-full h-48 object-cover"
       />
-      <div className="p-6">
-        <h3 className="text-xl font-semibold mb-2 text-earth-900">{project.title}</h3>
-        <p className="text-earth-800 mb-4">{project.description}</p>
+      <div className="p-6 flex flex-col flex-grow">
+        <div className="flex-grow">
+          <h3 className="text-xl font-semibold mb-2 text-earth-900">{project.title}</h3>
+          <p className="text-earth-800 mb-4">{project.description}</p>
+        </div>
         <Link
           to={`/gallery/${project.id}`}
           className="inline-flex items-center text-accent-100 hover:text-accent-200 transition-colors duration-200"
